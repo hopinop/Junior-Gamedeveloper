@@ -26,10 +26,13 @@ public abstract class Unit : MonoBehaviour,
 
     private void Start()
     {
-
+        if (MainManager.Instance != null)
+        SetColor(MainManager.Instance.playerData.teamColor);
+        else 
+        SetColor(Color.yellow);
     }
 
-    void SetColor(Color c)
+     void SetColor(Color c)
     {
         var colorHandler = GetComponentInChildren<ColorHandler>();
         if (colorHandler != null)
